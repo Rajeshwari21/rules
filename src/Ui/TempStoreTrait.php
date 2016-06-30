@@ -6,7 +6,6 @@ use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\user\SharedTempStoreFactory;
-use Drupal\Core\Render\RendererInterface;
 
 /**
  * Provides methods for modified rules components in temporary storage.
@@ -57,10 +56,10 @@ trait TempStoreTrait {
   /**
    * Retrieves the renderer service if not already present.
    *
-   * @param \Drupal\Core\Render\RendererInterface $renderer
+   * @return \Drupal\Core\Render\RendererInterface
    *   The renderer service.
    */
-  public function getRenderer(){
+  public function getRenderer() {
     if (!isset($this->renderer)) {
       $this->renderer = \Drupal::service('renderer');
     }
